@@ -59,7 +59,8 @@ foreach (var a in attendanceService.GetAll())
 ```
 # 🎬 Demonstratsiya (GIF)
 
-GIF qo‘yish uchun .gif faylini GitHub repoga qo‘shing va linkni shu yerga joylashtiring.
+![Gif](https://github.com/user-attachments/assets/82472ed5-56db-44e2-ad37-d820c10ee70d)
+
 ---
 
 # 📦 Foydalanish
