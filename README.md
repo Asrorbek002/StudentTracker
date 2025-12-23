@@ -1,82 +1,81 @@
-🏫 StudentTracker
+# 🏫 StudentTracker
 
-StudentTracker — bu interaktiv C# konsol dasturi bo‘lib, foydalanuvchilarga talabalarni va ularning davomatini kuzatish imkonini beradi. Loyiha 4 qatlamli arxitektura asosida tuzilgan: Domain, Infrastructure, Application, Client.
+**StudentTracker** — interaktiv C# konsol dasturi bo‘lib, foydalanuvchilarga talabalarni va ularning davomatini kuzatish imkonini beradi. Loyiha **4 qatlamli arxitektura** asosida tuzilgan: Domain, Infrastructure, Application, Client.
 
-📌 Arxitektura
+---
+
+## 📌 Arxitektura
+
 StudentTracker
- ├─ StudentTracker.Domain        (Models)
- │    ├─ Student.cs
- │    ├─ Attendance.cs
- │    └─ ExternalAttendance.cs
- │
- ├─ StudentTracker.Infrastructure (Data storage)
- │    └─ DbContext.cs
- │
- ├─ StudentTracker.Application   (Services)
- │    ├─ StudentService.cs
- │    └─ AttendanceService.cs
- │
- └─ StudentTracker.Client        (Console App)
-      └─ Program.cs
+├─ StudentTracker.Domain (Models)
+│ ├─ Student.cs
+│ ├─ Attendance.cs
+│ └─ ExternalAttendance.cs
+│
+├─ StudentTracker.Infrastructure (Data storage)
+│ └─ DbContext.cs
+│
+├─ StudentTracker.Application (Services)
+│ ├─ StudentService.cs
+│ └─ AttendanceService.cs
+│
+└─ StudentTracker.Client (Console App)
+└─ Program.cs
 
 
-Domain – Loyihaning asosiy modellari (Student, Attendance, ExternalAttendance)
+- **Domain** – Loyihaning asosiy modellari: `Student`, `Attendance`, `ExternalAttendance`  
+- **Infrastructure** – Ma’lumotlar saqlanadi (`List` ishlatilgan, array emas)  
+- **Application** – Logika: `Add` va `GetAll` metodlari mavjud  
+- **Client** – Konsol interfeysi orqali ishlash  
 
-Infrastructure – Ma’lumotlar saqlanadigan qatlam (List ishlatilgan, array emas)
+---
 
-Application – Logika qatlamida Add va GetAll metodlari mavjud
+## 🖥 Ishlash tartibi
 
-Client – Konsol interfeysi orqali ishlash
+### 1️⃣ Student qo‘shish
 
-🖥 Ishlash tartibi
-
-Student qo‘shish:
-
+```csharp
 var studentService = new StudentService();
 studentService.Add(new Student { Id = 1, FullName = "Ali Karimov" });
-
-
-Attendance qo‘shish:
-
+studentService.Add(new Student { Id = 2, FullName = "Vali Aliyev" });
+2️⃣ Attendance qo‘shish
+csharp
 var attendanceService = new AttendanceService();
 attendanceService.Add(new Attendance { Id = 1, StudentId = 1, Date = DateTime.Today, IsPresent = true });
-
-
-Barcha studentlarni ko‘rish:
-
+attendanceService.Add(new Attendance { Id = 2, StudentId = 2, Date = DateTime.Today, IsPresent = false });
+3️⃣ Barcha studentlarni ko‘rish
+csharp
 foreach (var s in studentService.GetAll())
 {
     Console.WriteLine($"{s.Id} - {s.FullName}");
 }
-
-
-Barcha attendance yozuvlarini ko‘rish:
-
+4️⃣ Barcha attendance yozuvlarini ko‘rish
+csharp
+Copy code
 foreach (var a in attendanceService.GetAll())
 {
     Console.WriteLine($"StudentId: {a.StudentId}, Present: {a.IsPresent}");
 }
+```
+# 🎬 Demonstratsiya (GIF)
 
-🎬 Demonstratsiya (GIF)
+GIF qo‘yish uchun .gif faylini GitHub repoga qo‘shing va linkni shu yerga joylashtiring.
+---
 
-GIFni qo‘yish uchun GitHub repoga .gif faylini qo‘shing va link-to-your-gif.gif o‘rniga real link qo‘ying.
-
-📦 Foydalanish
-
+# 📦 Foydalanish
 Loyihani klonlash:
 
-git clone https://github.com/username/StudentTracker.git
-
-
+bash
+Copy code
+git clone https://github.com/yourusername/StudentTracker.git
 Visual Studio yoki VS Code da ochish
 
 StudentTracker.Client ni startup project qilib ishga tushirish
 
-Student qo‘shish, attendance yozish va ko‘rish imkoniyati mavjud
-
-⚙ Texnologiyalar
-
-C# 12 / .NET 8
+Student qo‘shish, attendance yozish va ko‘rish mumkin
+---
+## ⚙ Texnologiyalar
+C# / .NET 9
 
 Konsol dasturi
 
@@ -84,8 +83,6 @@ Konsol dasturi
 
 List saqlash (Infrastructure)
 
-👨‍💻 Muallif
+## 👨‍💻 Muallif
 
-Ali Karimov
-
-GitHub: github.com/yourusername
+GitHub:  [github.com/yourusername](https://github.com/Asrorbek002)
