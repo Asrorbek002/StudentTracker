@@ -1,89 +1,111 @@
-# 🏫 StudentTracker
+# 🎓 StudentTracker Console App
 
-**StudentTracker** — interaktiv C# konsol dasturi bo‘lib, foydalanuvchilarga talabalarni va ularning davomatini kuzatish imkonini beradi. Loyiha **4 qatlamli arxitektura** asosida tuzilgan: Domain, Infrastructure, Application, Client.
+StudentTracker — bu **C# Console Application** bo‘lib, **Clean Architecture**
+asosida yozilgan. Ilova orqali studentlarni qo‘shish, o‘zgartirish,
+qidirish va o‘chirish mumkin.
 
 ---
 
-## 📌 Arxitektura
+## 📸 Demo (GIF)
+
+![Gif](https://github.com/user-attachments/assets/e35a6e31-9bf1-42c7-be32-40fbbdf932c2)
+
+
+
+
+---
+
+## 🏗 Arxitektura (Clean Architecture)
 
 StudentTracker
-├─ StudentTracker.Domain (Models)
-│ ├─ Student.cs
-│ ├─ Attendance.cs
-│ └─ ExternalAttendance.cs
 │
-├─ StudentTracker.Infrastructure (Data storage)
-│ └─ DbContext.cs
+├── StudentTracker.Domain
+│ └── Models
+│ └── Student.cs
 │
-├─ StudentTracker.Application (Services)
-│ ├─ StudentService.cs
-│ └─ AttendanceService.cs
+├── StudentTracker.Infrastructure
+│ └── Data
+│ └── DbContext.cs
 │
-└─ StudentTracker.Client (Console App)
-└─ Program.cs
+├── StudentTracker.Application
+│ └── Services
+│ └── StudentService.cs
+│
+└── StudentTracker.Client
+└── Program.cs
 
 
-- **Domain** – Loyihaning asosiy modellari: `Student`, `Attendance`, `ExternalAttendance`  
-- **Infrastructure** – Ma’lumotlar saqlanadi (`List` ishlatilgan, array emas)  
-- **Application** – Logika: `Add` va `GetAll` metodlari mavjud  
-- **Client** – Konsol interfeysi orqali ishlash  
+### 🔹 Layerlar vazifasi:
+- **Domain** → Entity / Model
+- **Infrastructure** → Ma’lumot saqlash (List / DB)
+- **Application** → Business logic
+- **Client** → Console UI
 
 ---
 
-## 🖥 Ishlash tartibi
+## ✨ Mavjud funksiyalar
 
-### 1️⃣ Student qo‘shish
-
-```csharp
-var studentService = new StudentService();
-studentService.Add(new Student { Id = 1, FullName = "Ali Karimov" });
-studentService.Add(new Student { Id = 2, FullName = "Vali Aliyev" });
-2️⃣ Attendance qo‘shish
-csharp
-var attendanceService = new AttendanceService();
-attendanceService.Add(new Attendance { Id = 1, StudentId = 1, Date = DateTime.Today, IsPresent = true });
-attendanceService.Add(new Attendance { Id = 2, StudentId = 2, Date = DateTime.Today, IsPresent = false });
-3️⃣ Barcha studentlarni ko‘rish
-csharp
-foreach (var s in studentService.GetAll())
-{
-    Console.WriteLine($"{s.Id} - {s.FullName}");
-}
-4️⃣ Barcha attendance yozuvlarini ko‘rish
-csharp
-Copy code
-foreach (var a in attendanceService.GetAll())
-{
-    Console.WriteLine($"StudentId: {a.StudentId}, Present: {a.IsPresent}");
-}
-```
-# 🎬 Demonstratsiya (GIF)
-
-![Gif](https://github.com/user-attachments/assets/82472ed5-56db-44e2-ad37-d820c10ee70d)
+- ✅ Student qo‘shish
+- ✏️ Student ma’lumotini o‘zgartirish
+- 🔍 ID bo‘yicha qidirish
+- 🔎 Name bo‘yicha qidirish
+- 📋 Studentlar ro‘yxatini ko‘rish
+- 🗑 Studentni ID bo‘yicha o‘chirish
 
 ---
 
-# 📦 Foydalanish
-Loyihani klonlash:
+## 🖥 Console Menu
 
-bash
-Copy code
-git clone https://github.com/yourusername/StudentTracker.git
-Visual Studio yoki VS Code da ochish
+=== STUDENT TRACKER ===
 
-StudentTracker.Client ni startup project qilib ishga tushirish
+1. Student qo‘shish
 
-Student qo‘shish, attendance yozish va ko‘rish mumkin
+2. Studentni o‘zgartirish
+
+3. ID bo‘yicha qidirish
+
+4. Name bo‘yicha qidirish
+
+5. Studentlar ro‘yxati
+
+6. ID bo‘yicha o‘chirish
+
+0. Chiqish
+
 ---
-## ⚙ Texnologiyalar
-C# / .NET 9
 
-Konsol dasturi
+## 🧩 Ishlatilgan texnologiyalar
 
-4 qatlamli arxitektura
+- C#
+- .NET Console App
+- Clean Architecture
+- OOP (Encapsulation, Separation of Concerns)
 
-List saqlash (Infrastructure)
+---
 
-## 👨‍💻 Muallif
+## 🚀 Ishga tushirish
 
-GitHub:  [github.com/yourusername](https://github.com/Asrorbek002)
+1. Repozitoriyani clone qiling:
+```bash
+git clone https://github.com/USERNAME/StudentTracker.git
+Visual Studio’da oching
+
+StudentTracker.Client ni Startup Project qiling
+
+Run (F5) bosib ishga tushiring
+
+📌 Kelajakda qo‘shilishi mumkin
+🔄 Auto Increment ID
+
+📁 File / JSON saqlash
+
+🗄 Database (SQL Server)
+
+🔌 Dependency Injection
+
+🧪 Unit Testlar
+
+👨‍💻 Muallif
+Asrorbek
+Email: abdurashidovasrorbek@gmail.com
+💻 C# / .NET Developer
