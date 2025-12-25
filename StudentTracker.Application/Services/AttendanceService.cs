@@ -5,13 +5,20 @@ namespace StudentTracker.Application.Services;
 
 public class AttendanceService
 {
-    public void Add(Attendance attendance)
+    public void MarkAttendance(int studentId, bool isPresent)
     {
-        DbContext.Attendances.Add(attendance);
+        DbContext.Attendances.Add(new Attendance
+        {
+            StudentId = studentId,
+            Date = DateTime.Now,
+            IsPresent = isPresent
+        });
     }
 
-    public List<Attendance> GetAll()
+    public List<Attendance> GetByStudentId(int studentId)
     {
-        return DbContext.Attendances;
+        return DbContext.Attendances
+            .Where(a => a.StudentId == studentId)
+            .ToList();
     }
 }
