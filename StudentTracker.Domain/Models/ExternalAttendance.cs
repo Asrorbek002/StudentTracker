@@ -1,7 +1,6 @@
 ﻿namespace StudentTracker.Domain.Models;
 
-public class ExternalAttendance
+public class ExternalAttendance : Attendance
 {
-    public string StudentName { get; set; }
-    public string Status { get; set; }
+    public string Source { get; set; } = string.Empty;
 }
