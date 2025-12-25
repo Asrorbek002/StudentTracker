@@ -104,8 +104,10 @@ Run (F5) bosib ishga tushiring
 🔌 Dependency Injection
 
 🧪 Unit Testlar
+```
+---
 
 👨‍💻 Muallif
-Asrorbek
-Email: abdurashidovasrorbek@gmail.com
-💻 C# / .NET Developer
+- Asrorbek
+- Email: abdurashidovasrorbek@gmail.com
+- 💻 C# / .NET Developer
